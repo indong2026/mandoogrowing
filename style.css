@@ -1,0 +1,519 @@
+/* ===========================
+   기본 설정
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+    font-family:"Pretendard","맑은 고딕",sans-serif;
+}
+
+body{
+    background:#1b1b1b;
+    color:white;
+    display:flex;
+    justify-content:center;
+    min-height:100vh;
+}
+
+img{
+    user-select:none;
+    -webkit-user-drag:none;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+}
+
+/* ===========================
+   전체 앱
+=========================== */
+
+#app{
+
+    width:100%;
+    max-width:480px;
+    min-height:100vh;
+
+    background:#252525;
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+/* ===========================
+   상단 정보
+=========================== */
+
+#topBar{
+
+    display:flex;
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:15px;
+
+}
+
+.infoBox{
+
+    flex:1;
+
+    background:#333;
+
+    border-radius:14px;
+
+    padding:12px;
+
+    text-align:center;
+
+}
+
+.label{
+
+    display:block;
+
+    font-size:13px;
+
+    color:#bbbbbb;
+
+    margin-bottom:5px;
+
+}
+
+.infoBox span:last-child{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+   게임 화면
+=========================== */
+
+#gameArea{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+}
+
+/* 경험치 */
+
+#expContainer{
+
+    width:100%;
+
+    height:12px;
+
+    background:#3b3b3b;
+
+    border-radius:100px;
+
+    overflow:hidden;
+
+    margin-bottom:35px;
+
+}
+
+#expBar{
+
+    width:25%;
+
+    height:100%;
+
+    background:#4caf50;
+
+}
+
+/* 캐릭터 */
+
+#characterArea{
+
+    width:200px;
+    height:240px;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+
+}
+
+#character{
+
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+
+}
+
+#character:active{
+
+    transform:scale(.95);
+
+}
+
+/* +10 효과 */
+
+#effectContainer{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+/* 안내 */
+
+#touchText{
+
+    margin-top:25px;
+
+    font-size:22px;
+
+    color:#d8d8d8;
+
+}
+
+/* ===========================
+   업그레이드
+=========================== */
+
+#shop{
+
+    padding:18px;
+
+}
+
+#shop h2{
+
+    margin-bottom:15px;
+
+}
+
+.upgradeCard{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#333;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+}
+
+.upgradeInfo h3{
+
+    margin-bottom:6px;
+
+}
+
+.upgradeInfo p{
+
+    color:#bbbbbb;
+
+    font-size:14px;
+
+    margin-top:4px;
+
+}
+
+.upgradeCard button{
+
+    width:90px;
+
+    height:45px;
+
+    background:#4caf50;
+
+    color:white;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+}
+
+.upgradeCard button:active{
+
+    transform:scale(.95);
+
+}
+
+/* ===========================
+   하단 메뉴
+=========================== */
+
+#bottomMenu{
+
+    display:flex;
+
+    background:#303030;
+
+}
+
+.menuBtn{
+
+    flex:1;
+
+    height:70px;
+
+    background:none;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:5px;
+
+    font-size:24px;
+
+}
+
+.menuBtn span{
+
+    font-size:12px;
+
+}
+
+/* ===========================
+   모바일
+=========================== */
+
+@media (max-width:420px){
+
+    #character{
+
+        width:180px;
+
+    }
+
+    #characterArea{
+
+        width:210px;
+        height:210px;
+
+    }
+
+    .infoBox span:last-child{
+
+        font-size:18px;
+
+    }
+
+}
+
+#giftBox{
+
+    position:absolute;
+
+    font-size:55px;
+
+    cursor:pointer;
+
+    display:none;
+
+    animation:giftMove 1s infinite alternate;
+
+    z-index:10;
+
+}
+
+
+@keyframes giftMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-15px);
+    }
+
+}
+
+#achievementPanel{
+
+    position:fixed;
+
+    top:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    max-width:480px;
+
+    height:100%;
+
+    background:#252525;
+
+    display:none;
+
+    padding:20px;
+
+    z-index:100;
+
+}
+
+
+#achievementHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+
+#closeAchievement{
+
+    padding:10px 15px;
+
+    border-radius:10px;
+
+}
+
+
+.achievement{
+
+    background:#333;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:12px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+.achievement h3{
+
+    margin:0 0 5px;
+
+}
+
+
+.achievement p{
+
+    margin:3px 0;
+
+    color:#bbb;
+
+}
+
+
+.achievement button{
+
+    width:75px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#ffd54f;
+
+    color:#222;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+    cursor:pointer;
+
+}
+
+
+.achievement button:disabled{
+
+    background:#555;
+
+    color:#aaa;
+
+}
+
+
+.achievement button:not(:disabled):active{
+
+    transform:scale(0.9);
+
+}
+
+
+.rewardBtn:disabled{
+
+    background:#555;
+
+    color:#aaa;
+
+}
+
+#achievementList{
+
+    overflow-y:auto;
+
+    height:calc(100% - 60px);
+
+}
+
+
+.achievement.locked{
+
+    opacity:0.5;
+
+}
+
+
+.achievement.completed{
+
+    border:2px solid #4caf50;
+
+}

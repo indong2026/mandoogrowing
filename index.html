@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>민준 키우기</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+    <!-- 상단 정보 -->
+    <header id="topBar">
+
+        <div class="infoBox">
+            <span class="label">💰 돈</span>
+            <span id="money">0</span>
+        </div>
+
+        <div class="infoBox">
+            <span class="label">⭐ 레벨</span>
+            <span id="level">1</span>
+        </div>
+
+        <div class="infoBox">
+            <span class="label">⚡ 초당</span>
+            <span id="autoIncome">0</span>
+        </div>
+
+    </header>
+
+    <!-- 캐릭터 -->
+    <main id="gameArea">
+
+        
+
+        <div id="expContainer">
+            <div id="expBar"></div>
+        </div>
+
+        <div id="characterArea">
+
+            <div id="effectContainer"></div>
+
+            <img
+                src="images/player1.png"
+                id="character"
+                draggable="false"
+                alt="캐릭터">
+
+                <div id="giftBox">
+    🎁
+</div>
+
+        </div>
+
+        <h2 id="touchText">터치해서 돈 벌기</h2>
+
+    </main>
+
+    <!-- 업그레이드 -->
+    <section id="shop">
+
+
+        <div class="upgradeCard">
+
+            <div class="upgradeInfo">
+
+                <h3>👆 클릭 강화</h3>
+
+                <p>클릭당 +1 증가</p>
+
+                <p>Lv.
+                    <span id="clickLevel">
+                        1
+                    </span>
+                </p>
+
+            </div>
+
+            <button id="clickUpgradeBtn">
+
+                100원
+
+            </button>
+
+        </div>
+
+        <div class="upgradeCard">
+
+            <div class="upgradeInfo">
+
+                <h3>🏭 자동 수입</h3>
+
+                <p>초당 +1 증가</p>
+
+                <p>Lv.
+                    <span id="autoLevel">
+                        1
+                    </span>
+                </p>
+
+            </div>
+
+            <button id="autoUpgradeBtn">
+
+                150원
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- 하단 메뉴 -->
+    <nav id="bottomMenu">
+
+        <button class="menuBtn">
+
+            🏠
+            <span>홈</span>
+
+        </button>
+
+        <button class="menuBtn" id="achievementBtn">
+
+    🏆
+    <span>업적</span>
+
+</button>
+
+        <button class="menuBtn">
+
+            🎒
+            <span>가방</span>
+
+        </button>
+
+        <button class="menuBtn">
+
+            ⚙️
+            <span>설정</span>
+
+        </button>
+
+    </nav>
+
+    <!-- 업적 창 -->
+<div id="achievementPanel">
+
+    <div id="achievementHeader">
+
+        <h2>🏆 업적</h2>
+
+        <button id="closeAchievement">
+            닫기
+        </button>
+
+    </div>
+
+
+    <div id="achievementList">
+
+        <!-- JS가 업적을 생성하는 곳 -->
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
