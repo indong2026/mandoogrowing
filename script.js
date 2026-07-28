@@ -144,12 +144,12 @@ function addExp(amount) {
 function changeCharacter() {
   // 현재 레벨이 10 이하라면 해당 사진 사용
   if (player.level <= 10) {
-    character.src = `player${player.level}.png`;
+    character.src = `images/player${player.level}.png`;
   }
 
   // 10레벨 이후는 마지막 사진 유지
   else {
-    character.src = "player10.png";
+    character.src = "images/player10.png";
   }
 }
 
