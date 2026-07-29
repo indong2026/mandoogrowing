@@ -24,6 +24,14 @@ const closeAchievement = document.getElementById("closeAchievement");
 
 const achievementButtons = document.querySelectorAll(".rewardBtn");
 
+const upgradeSection = document.getElementById("upgradeSection");
+
+const shopBtn = document.getElementById("shopBtn");
+const storePanel = document.getElementById("storePanel");
+const closeStore = document.getElementById("closeStore");
+
+const buyTotem1 = document.getElementById("buyTotem1");
+
 const achievementList = {
   firstClick: {
     name: "첫 클릭",
@@ -94,6 +102,10 @@ const player = {
   criticalCount: 0,
 
   achievements: {},
+
+  totem1: false,
+
+  totemIncome: 0,
 };
 
 // ===========================
@@ -105,7 +117,7 @@ function updateUI() {
 
   levelText.textContent = player.level;
 
-  autoIncomeText.textContent = player.autoIncome;
+  autoIncomeText.textContent = player.autoIncome + player.totemIncome;
 
   clickLevelText.textContent = player.clickLevel;
 
@@ -130,10 +142,12 @@ function addExp(amount) {
 
     player.level++;
 
+    changeCharacter();
+
     // 레벨이 높아질수록 조금씩 더 어려워짐
     player.maxExp = Math.floor(player.maxExp * 1.15);
 
-    changeCharacter();
+    
   }
 }
 
@@ -195,7 +209,7 @@ character.addEventListener("click", () => {
 // ===========================
 
 setInterval(() => {
-  player.money += player.autoIncome;
+  player.money += player.autoIncome + player.totemIncome;
 
   updateUI();
 }, 1000);
@@ -227,11 +241,11 @@ autoUpgradeBtn.addEventListener("click", () => {
 
   player.money -= player.autoCost;
 
-  player.autoIncome++;
-
   player.autoLevel++;
 
-  player.autoCost = Math.floor(player.autoCost * 1.5);
+  player.autoIncome += 10;
+
+  player.autoCost = Math.floor(player.autoCost * 1.6);
 
   updateUI();
 });
@@ -427,4 +441,40 @@ achievementBtn.addEventListener("click", () => {
 
 closeAchievement.addEventListener("click", () => {
   achievementPanel.style.display = "none";
+});
+
+shopBtn.addEventListener("click", () => {
+  storePanel.style.display = "block";
+});
+
+closeStore.addEventListener("click", () => {
+  storePanel.style.display = "none";
+});
+
+buyTotem1.addEventListener("click", () => {
+  const price = 1000;
+
+  if (player.totem1) {
+    return;
+  }
+
+  if (player.money < price) {
+    alert("돈이 부족합니다");
+
+    return;
+  }
+
+  player.money -= price;
+
+  player.totem1 = true;
+
+  player.totemIncome = 5;
+
+  document.getElementById("leftTotem").src = "images/totem1.png";
+
+  document.getElementById("rightTotem").src = "images/totem1.png";
+
+  buyTotem1.textContent = "보유중";
+
+  updateUI();
 });

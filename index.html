@@ -44,11 +44,15 @@
 
             <div id="effectContainer"></div>
 
+            <img id="leftTotem">
+
             <img
                 src="images/player1.png"
                 id="character"
                 draggable="false"
                 alt="캐릭터">
+
+            <img id="rightTotem">
 
                 <div id="giftBox">
     🎁
@@ -61,8 +65,7 @@
     </main>
 
     <!-- 업그레이드 -->
-    <section id="shop">
-
+    <div id="upgradeArea">
 
         <div class="upgradeCard">
 
@@ -94,7 +97,7 @@
 
                 <h3>🏭 자동 수입</h3>
 
-                <p>초당 +1 증가</p>
+                <p>초당 +10 증가</p>
 
                 <p>Lv.
                     <span id="autoLevel">
@@ -112,17 +115,18 @@
 
         </div>
 
-    </section>
+    </div>
 
     <!-- 하단 메뉴 -->
     <nav id="bottomMenu">
 
-        <button class="menuBtn">
+        <button class="menuBtn" id="shopBtn">
 
-            🏠
-            <span>홈</span>
+    🛒
 
-        </button>
+    <span>상점</span>
+
+</button>
 
         <button class="menuBtn" id="achievementBtn">
 
@@ -146,6 +150,40 @@
         </button>
 
     </nav>
+
+
+<!-- 상점 화면 -->
+<section id="storePanel">
+
+    <div id="storeHeader">
+
+        <h2>🛒 상점</h2>
+
+        <button id="closeStore">
+            닫기
+        </button>
+
+    </div>
+
+
+    <div class="storeItem">
+
+        <img src="images/totem1.png">
+
+        <div class="itemInfo">
+            <h3>🗿 수호 토템</h3>
+            <p>캐릭터 주변에 장착</p>
+            <p>가격: 1000원</p>
+        </div>
+
+        <button id="buyTotem1">
+    구매
+</button>
+
+    </div>
+
+
+</section>
 
     <!-- 업적 창 -->
 <div id="achievementPanel">
